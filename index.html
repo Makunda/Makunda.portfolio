@@ -50,25 +50,101 @@
             </div>
     
             <div class="row w-100 justify-content-center m-4" >
-                <a href="#project_section" class="d-flex text-center flex-column">
+                <a href="#project_section" onclick="confetti.launchConfetti()" class="d-flex text-center flex-column">
                     <i> Claim your suprise below</i>
                     <svg style="align-self: center;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="60" height="60">
                     <path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg>
-                </p>
+                    </a>
             
             </div>
  
         </div>
         
         <div class="panel" id="project_section">
-            <div class="row w-100 justify-content-center m-4">
-                <button onclick="confetti.launchConfetti()"> Get your suprise</button>
+            <div class="row w-100 d-flex flex-column text-center justify-content-center mt-3">
+                <h3 class="display-3 mb-3"> On going projects </h3>
+                <div class="container project-container">
+                    <div class="project">
+                        <div class="project-front">
+                            <span class="project-name"> Moirai-Extension </span>
+                            <div class="project-tag">
+                                <span class="badge badge-secondary">Professional</span> 
+                                <span class="badge badge-secondary">Java 8</span> 
+                                <span class="badge badge-secondary">Neo4j</span> 
+                            </div>
+                        </div>
+                    
+                        <div class="project-bg" style="background-image: url('static/img/Neo4j.PNG')">
+                        </div>
+                    </div>
+                    <div class="project">
+                        <div class="project-front">
+                            <span class="project-name"> Trading Bot</span>
+                            <div class="project-tag">
+                                <span class="badge badge-secondary">Personnal</span> 
+                                <span class="badge badge-secondary">Java 8</span> 
+                                <span class="badge badge-secondary">InfluxDB</span> 
+                            </div>
+                        </div>
+                    
+                        <div class="project-bg" style="background-image: url('static/img/Java.PNG')">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row w-100 text-center d-flex flex-column justify-content-center mt-3">
+                <h3 class="display-3 mb-3"> Archived projects </h3>
+                <div class="container project-container">
+                    <div class="project">
+                        <div class="project-front">
+                            <span class="project-name"> Freepower </span>
+                            <span class="project-tag">
+                                <span class="badge badge-secondary">C#</span> 
+                                <span class="badge badge-secondary">Client</span>
+                                <span class="badge badge-secondary">MSSQL</span>
+                            </span>
+                        </div>
+                        <div class="project-bg" style="background-image: url('https://previews.123rf.com/images/iunewind/iunewind1505/iunewind150500146/40225186-html-code.jpg')">
+                        </div>
+                    </div>
+                    
+                    <div class="project">
+                        <div class="project-front">
+                            <span class="project-name"> Geoloc </span>
+                            <span class="project-tag">
+                                <span class="badge badge-secondary">C</span> 
+                                <span class="badge badge-secondary">SFML</span>
+                                <span class="badge badge-secondary">Machine Learning</span>
+                            </span>
+                        </div>
+                        <div class="project-bg" style="background-image: url('static/img/C.PNG')">
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-front">
+                            <span class="project-name"> Mask R-Cnn + Trackers </span>
+                            <span class="project-tag">
+                                <span class="badge badge-secondary">Python</span> 
+                                <span class="badge badge-secondary">Scholar</span>
+                                <span class="badge badge-secondary">Deep learning</span>
+                            </span>
+                        </div>
+                        <div class="project-bg" style="background-image: url('static/img/DeeplearningASL.PNG')">
+                        </div>
+                    </div>
+                    
+
+                </div>
             </div>
         </div>
+
+        
 
         <div class="panel" id="who_i_am_section">
 
         </div>
+
 
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>        
         <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js" integrity="sha256-DI6NdAhhFRnO2k51mumYeDShet3I8AKCQf/tf7ARNhI=" crossorigin="anonymous"></script>

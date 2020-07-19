@@ -14,6 +14,9 @@
  "concerned", "glamorous", "open", "vast", "condemned", "gleaming", "outrageous", "victorious", "confused", "glorious", "outstanding", "vivacious", "cooperative", "good", "courageous", "gorgeous", "panicky", "wandering", "crazy", "graceful", "perfect", "weary", "creepy", "grieving", "plain", "wicked", "crowded", "grotesque", "pleasant", "wide", "eyed",
  "cruel", "grumpy", "poised", "wild", "curious", "poor", "witty", "cute", "handsome", "powerful", "worrisome", "happy", "precious", "worried", "dangerous", "healthy", "prickly", "wrong", "dark", "helpful", "proud", "dead", "helpless", "putrid", "zany", "defeated", "hilarious", "puzzled", "zealous" ]
 
+
+//Projects 
+
  // Singletons 
 var singletonChatConsole = null;
 
@@ -296,9 +299,10 @@ function darkBackground() {
 	var bounding = document.getElementById('project_section').getBoundingClientRect();
 	if(bounding.y > 0 && bounding.y < 1000) {
 		
-		opacity = 1 - (bounding.y) / 1000
-		document.getElementById('project_section').style.backgroundColor =  `rgba(52, 58, 64,${opacity})`
+		opacity = 1 - (bounding.y) / 1000;
+		document.getElementById('project_section').style.backgroundColor =  `rgba(52, 58, 64,${opacity})`;
 	} else {
+		document.getElementById('project_section').style.backgroundColor =  `rgba(52, 58, 64,1)`;
 		window.removeEventListener('scroll', darkBackground, false);
 		return 1;
 	}
