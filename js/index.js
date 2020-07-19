@@ -5,17 +5,6 @@ var singletonChatConsole = null;
 
 class ChatConsole {
 
-	sections = [{ text : "Projects", action : "#projects" },
-				{ text : "Professionals experiences", action : "#experience"} ];
-
-	messageList = [" Hey you ! Welcome on my developper portfolio !", 
-	"I'm Hugo, a french developper. You can find here some of my projects as well as a regular resume (if you're a recruiter).", 
-	"If you're interested in any of them, feel free to follow me on <a href=\"https://github.com/Makunda\">Github<\/a>"];
-	
-	questions = { recruiter : { question : "Quick question to start. Are you a recruiter ?", answers : [ { text : "Yes I am.", action : "isRecruiter" }, { text : "No I'm just a random citizen !", action : "normalMode" } ]},
-				 sections : { question : "What do you want to see ?", answers : this.sections}
-	}
-
 	getTimestampAsString () {
 		var objToday = new Date(),
 		curHour = objToday.getHours() > 12 ? objToday.getHours() - 12 : (objToday.getHours() < 10 ? "0" + objToday.getHours() : objToday.getHours()),
@@ -149,8 +138,20 @@ class ChatConsole {
 		if( singletonChatConsole !== null) {
 			Object.assign(this, singletonChatConsole);
 		} else {
+			
+			this.sections = [{ text : "Projects", action : "#projects" },
+			{ text : "Professionals experiences", action : "#experience"} ];
+			
+			this.messageList = [" Hey you ! Welcome on my developper portfolio !", 
+			"I'm Hugo, a french developper. You can find here some of my projects as well as a regular resume (if you're a recruiter).", 
+			"If you're interested in any of them, feel free to follow me on <a href=\"https://github.com/Makunda\">Github<\/a>"];
+			
+			this.questions = { recruiter : { question : "Quick question to start. Are you a recruiter ?", answers : [ { text : "Yes I am.", action : "isRecruiter" }, { text : "No I'm just a random citizen !", action : "normalMode" } ]},
+			sections : { question : "What do you want to see ?", answers : this.sections}};
+			
 			singletonChatConsole = this;
 		}
+
 		this.displayCursor();
 		var c = this; 
 	    setTimeout(function(){
@@ -184,6 +185,62 @@ class RandomTitleGenerator {
 	constructor() {
 		this.getTitle();
 	}
+}
+
+// This code was stolen from Mr. Chuck Grimmett, check is blog here : http://www.cagrimmett.com/til/2018/01/05/css-confetti.html 
+class Confetti {
+	  
+	create(i) {
+		var width = Math.random() * 8;
+		var height = width * 0.4;
+		var colourIdx = Math.ceil(Math.random() * 3);
+		var colour = "red";
+		switch(colourIdx) {
+		  case 1:
+			colour = "yellow";
+			break;
+		  case 2:
+			colour = "blue";
+			break;
+		  default:
+			colour = "red";
+		}
+		$('<div class="confetti-'+i+' '+colour+'"></div>').css({
+		  "width" : width+"px",
+		  "height" : height+"px",
+		  "top" : -Math.random()*20+"%",
+		  "left" : Math.random()*100+"%",
+		  "opacity" : Math.random()+0.5,
+		  "transform" : "rotate("+Math.random()*360+"deg)"
+		}).appendTo('.wrapper');  
+		
+		drop(i);
+	  }
+	  
+	drop(x) {
+		$('.confetti-'+x).animate({
+		  top: "100%",
+		  left: "+="+Math.random()*15+"%"
+		}, Math.random()*3000 + 3000, function() {
+		  reset(x);
+		});
+	  }
+	  
+	reset(x) {
+		$('.confetti-'+x).animate({
+		  "top" : -Math.random()*20+"%",
+		  "left" : "-="+Math.random()*15+"%"
+		}, 0, function() {
+		  drop(x);             
+		});
+	  }
+
+	  constructor() {
+		for (var i = 0; i < 250; i++) {
+			create(i);
+		   
+		  }
+	  }
 }
 
 //Start
