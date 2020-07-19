@@ -1,6 +1,6 @@
 const messageList = [" Hey you ! Welcome on my developper portfolio !", 
-"I'm Hugo JOBY,s a french developper, you can find here some of my projects as well as a regular resume (if you're a recruiter).", 
-"If you're interested in any of them, feel free to follow my on <a href=\"https://github.com/Makunda\">Github<\/a>"];
+"I'm Hugo, a french developper. You can find here some of my projects as well as a regular resume (if you're a recruiter).", 
+"If you're interested in any of them, feel free to follow me on <a href=\"https://github.com/Makunda\">Github<\/a>"];
 
 function getTimestampAsString () {
 	var objToday = new Date(),
@@ -72,6 +72,8 @@ function printNextMessage (index, delay) {
 	}
 	
 }
+
+
 
 displayCursor();
 setTimeout(function(){
