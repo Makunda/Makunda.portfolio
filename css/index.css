@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -18,15 +22,23 @@ body {
 .toast .toast-text {
     overflow-y: auto;
     padding: 15px;
-    text-overflow: clip;
+    -o-text-overflow: clip;
+       text-overflow: clip;
     max-height: 70%;
 }
 
 .toast .toast-answers {
     position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: end;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
     bottom: 0;
     padding: .5rem;
     width: 100%;
@@ -45,6 +57,8 @@ body {
 
 
 .message {
+    width : -webkit-max-content;
+    width : -moz-max-content;
     width : max-content;
     max-width: 100%;
     padding: 10px;
@@ -55,7 +69,10 @@ body {
 }
 
 .question {
-    align-self: flex-end;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    width : -webkit-max-content;
+    width : -moz-max-content;
     width : max-content;
     padding: 10px;
     padding-left: 15px;
@@ -67,11 +84,16 @@ body {
 }
 
 .bounceInAnimation {
-    animation-name: bounceIn;
-    animation-iteration-count: 1;
-    animation-delay: 0s;
-    animation-duration: 0.7s;
-    animation-fill-mode: both;
+    -webkit-animation-name: bounceIn;
+            animation-name: bounceIn;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+    -webkit-animation-duration: 0.7s;
+            animation-duration: 0.7s;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
 }
 
 .frame {
@@ -115,14 +137,28 @@ body {
     background-color: #5FC9F5;
 }
 
+.arrow {
+    border: solid #343A40;
+    border-width: 0 3px 3px 0;
+    display: block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
 /* ID */ 
 #top_bar {
     margin-top: 4rem;
     height: 15rem;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     text-align: center;
-    align-self: center !important;
-    height: 300px;
+    -ms-flex-item-align: center !important;
+        -ms-grid-row-align: center !important;
+        align-self: center !important;
+    height: 250px;
     min-width: 90%;
 }
 
@@ -152,29 +188,52 @@ body {
 
 #message_chat {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 
 }
 
 #message_cursor span {
-    animation-name: blinkDots;
-    animation-duration: 1.4s;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: both;
+    -webkit-animation-name: blinkDots;
+            animation-name: blinkDots;
+    -webkit-animation-duration: 1.4s;
+            animation-duration: 1.4s;
+    -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
 }
 
 #message_cursor span:nth-child(2) {
-    animation-delay: .2s;
+    -webkit-animation-delay: .2s;
+            animation-delay: .2s;
 }
 
 #message_cursor span:nth-child(3) {
-    animation-delay: .4s;
+    -webkit-animation-delay: .4s;
+            animation-delay: .4s;
 }
 
 #intro_div {
+   display: -webkit-box;
+   display: -ms-flexbox;
    display: flex;     
+}
+
+#project_section {
+    position: relative;
+}
+
+.panel {
+    overflow-x: hidden;
+    
 }
 
 /* Smartphones */
@@ -189,21 +248,49 @@ body {
     }   
 
     #intro_div {
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
+    }
+
+    .display-2 {
+        font-size: 3.5rem;
+        font-weight: 208;
+        line-height: 1.2;
     }
 
     .toast .toast-text {
         width: 100%; 
     }
 
-    
+    #top_bar {
+        height: 200px;
+    }
 
-    
+}
+
+@media (min-width: 992px) { 
+    .panel {
+        overflow: hidden;
+        height: 100vh;
+        max-height: 100vh;
+    }
 }
 
 
 
 /* Animations */ 
+@-webkit-keyframes blinkDots {
+    0% {
+      opacity: .2;
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      opacity: .2;
+    }
+} 
 @keyframes blinkDots {
     0% {
       opacity: .2;
@@ -215,6 +302,45 @@ body {
       opacity: .2;
     }
 }
+
+@-webkit-keyframes bounceIn {
+    0%,
+    20%,
+    40%,
+    60%,
+    80%,
+    to {
+     -webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);
+     animation-timing-function:cubic-bezier(.215,.61,.355,1)
+    }
+    0% {
+     opacity:0;
+     -webkit-transform:scale3d(.3,.3,.3);
+     transform:scale3d(.3,.3,.3)
+    }
+    20% {
+     -webkit-transform:scale3d(1.1,1.1,1.1);
+     transform:scale3d(1.1,1.1,1.1)
+    }
+    40% {
+     -webkit-transform:scale3d(.9,.9,.9);
+     transform:scale3d(.9,.9,.9)
+    }
+    60% {
+     opacity:1;
+     -webkit-transform:scale3d(1.03,1.03,1.03);
+     transform:scale3d(1.03,1.03,1.03)
+    }
+    80% {
+     -webkit-transform:scale3d(.97,.97,.97);
+     transform:scale3d(.97,.97,.97)
+    }
+    to {
+     opacity:1;
+     -webkit-transform:scaleX(1);
+     transform:scaleX(1)
+    }
+   }
 
 @keyframes bounceIn {
     0%,

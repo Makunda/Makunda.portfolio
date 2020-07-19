@@ -3,7 +3,6 @@
  */
 
 
-
  /**
   * Constant Declarations
   */
@@ -63,7 +62,6 @@ class ChatConsole {
 
 	buildAnswers( element, answers ) {
 		element.innerHTML = "";
-		console.log(answers);
 		
 		for( var it in answers ) {
 			var button = document.createElement("button");
@@ -71,7 +69,6 @@ class ChatConsole {
 			button.innerHTML = answers[it].text;
 			button.setAttribute("onclick", `singletonChatConsole["${answers[it].action}"]()`);
 			element.appendChild(button);
-			console.log("Created button for " + answers[it].action);
 		}
 	}
 	
@@ -129,7 +126,6 @@ class ChatConsole {
 	}
 
 	startQuestionPhase () {
-		console.log("Question phase started")
 		// Is the user a recruiter ? 
 		this.askQuestion(this.questions.recruiter);
 	}
@@ -244,47 +240,78 @@ class Confetti {
 			break;
 		  default:
 			colour = "red";
-		}
-		$(`<div class="${colour}-confetti confetti-'+i+' '+colour+'"></div>`).css({
+		}		
+		$(`<div style="position: absolute;" class="${colour}-confetti confetti-${i}"></div>`).css({
 		  "width" : width+"px",
 		  "height" : height+"px",
 		  "top" : -Math.random()*20+"%",
 		  "left" : Math.random()*100+"%",
 		  "opacity" : Math.random()+0.5,
 		  "transform" : "rotate("+Math.random()*360+"deg)"
-		}).appendTo('.wrapper');  
+		}).appendTo('#project_section');  
 		
-		drop(i);
+		this.drop(i);
 	  }
 	  
-	drop(x) {
+	drop(x) {		
 		$('.confetti-'+x).animate({
 		  top: "100%",
 		  left: "+="+Math.random()*15+"%"
 		}, Math.random()*3000 + 3000, function() {
-		  reset(x);
+			$('.confetti-'+x).remove();
 		});
 	  }
 	  
-	reset(x) {
-		$('.confetti-'+x).animate({
-		  "top" : -Math.random()*20+"%",
-		  "left" : "-="+Math.random()*15+"%"
-		}, 0, function() {
-		  drop(x);             
-		});
-	  }
 
-	  constructor() {
+	launchConfetti() {
 		for (var i = 0; i < 250; i++) {
-			create(i);
+			this.create(i);
 		   
 		  }
 	  }
+	  constructor() {
+		
+	  }
 }
+
+
+
+/** Darker bg */
+var clientHeight = 0;
+let last_known_scroll_position = 0;
+let ticking = false;
+function darkBackground() {
+
+	last_known_scroll_position = window.scrollY;
+  
+	if (!ticking) {
+	  window.requestAnimationFrame(function() {
+		darkBackground();
+		ticking = false;
+	  });
+  
+	  ticking = true;
+	}
+
+	var bounding = document.getElementById('project_section').getBoundingClientRect();
+	if(bounding.y > 0 && bounding.y < 1000) {
+		
+		opacity = 1 - (bounding.y) / 1000
+		document.getElementById('project_section').style.backgroundColor =  `rgba(52, 58, 64,${opacity})`
+	} else {
+		window.removeEventListener('scroll', darkBackground, false);
+		return 1;
+	}
+	
+}
+
+
+
+window.addEventListener('scroll', darkBackground, false);
 
 //Start
 var chat = new ChatConsole();
+var confetti = new Confetti();
 RandomTitleGenerator.getTitle();
 
 
