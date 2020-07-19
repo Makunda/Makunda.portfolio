@@ -1,8 +1,28 @@
 /**
  * Don't look at the JS code, it's dirty 
  */
+
+
+
+ /**
+  * Constant Declarations
+  */
+ // Title generator
+ possibleName = [ "Java", "C#", "Stack Overflow", "C", "C++", "Programmer", "Program", "Code", "Coding game", "Recruiter", "Big tech company", "Google", "Github", "Bug", "StackOverflow", "Vim", "Ubuntu", "Arch Linux", "Windows", "Linter", "Compilater", "Singleton", "HTML", "CSS", "GoLang"]
+ possibleVerbes = ["might be", "should be", "must be", "can be", "is","became","will be"]
+ possibleAdjectives = ["adorable", "delightful", "homely", "quaint", "adventurous", "depressed", "horrible", "aggressive", "determined", "hungry", "real", "agreeable", "different", "hurt", "relieved", "alert", "difficult", "repulsive", "alive", "disgusted", "ill", "rich", "amused", "distinct", "important", "angry", "disturbed", "impossible", "scary", "annoyed", "dizzy", "inexpensive", "selfish", "annoying", "doubtful", "innocent", "shiny", "anxious", "drab", "inquisitive", "shy", "arrogant", "dull", "itchy", "silly", "ashamed", "sleepy", "attractive", "eager", "jealous", "smiling", "average", "easy", "jittery", "smoggy", "awful", "elated", "jolly", "sore", "elegant", "joyous", "sparkling", "bad", "embarrassed", "splendid", "beautiful", "enchanting", "kind", "spotless", "better", "encouraging", "stormy", "bewildered", "energetic", "lazy", "strange", "black", "enthusiastic", "light", "stupid", "bloody", "envious", "lively", "successful", "blue", "evil", "lonely", "super", "blue",
+ "excited", "long", "blushing", "expensive", "lovely", "talented", "bored", "exuberant", "lucky", "tame", "brainy", "tender", "brave", "fair", "magnificent", "tense", "breakable", "faithful", "misty", "terrible", "bright", "famous", "modern", "tasty", "busy", "fancy", "motionless", "thankful", "fantastic", "muddy", "thoughtful", "calm", "fierce", "mushy", "thoughtless", "careful", "filthy", "mysterious", "tired", "cautious", "fine", "tough", "charming", "foolish", "nasty", "troubled", "cheerful", "fragile", "naughty", "clean", "frail", "nervous", "ugliest", "clear", "frantic", "nice", "ugly", "clever", "friendly", "nutty", "uninterested", "cloudy", "frightened", "unsightly", "clumsy", "funny", "obedient", "unusual", "colorful", "obnoxious", "upset", "combative", "gentle", "odd", "uptight", "comfortable", "gifted", "old-fashioned",
+ "concerned", "glamorous", "open", "vast", "condemned", "gleaming", "outrageous", "victorious", "confused", "glorious", "outstanding", "vivacious", "cooperative", "good", "courageous", "gorgeous", "panicky", "wandering", "crazy", "graceful", "perfect", "weary", "creepy", "grieving", "plain", "wicked", "crowded", "grotesque", "pleasant", "wide", "eyed",
+ "cruel", "grumpy", "poised", "wild", "curious", "poor", "witty", "cute", "handsome", "powerful", "worrisome", "happy", "precious", "worried", "dangerous", "healthy", "prickly", "wrong", "dark", "helpful", "proud", "dead", "helpless", "putrid", "zany", "defeated", "hilarious", "puzzled", "zealous" ]
+
+ // Singletons 
 var singletonChatConsole = null;
 
+/**
+ * Class in charge of the interaction in the chat 
+ * Run as a singleton
+ * @class ChatConsole
+ */
 class ChatConsole {
 
 	getTimestampAsString () {
@@ -115,23 +135,48 @@ class ChatConsole {
 	}
 
 	isRecruiter () {
+		// Reset message count & questions
+		this.setMessageCount(0);
 		this.cleanQuestionField();
+
 		this.addQuestion("Yes, I'm a beautiful recruiter.");
 		this.displayCursor();
 		var self = this;
 		// horrible nesterd timeout, but I didn't had a lot of time
 		setTimeout(function() {
+			self.setMessageCount(1);
 			self.addMessage("Hello, [Recruiter Name Here], must be the pride of [Recruiter Hometown Here]");
 			setTimeout(function() {
-				self.addMessage("You can download my resume by clicking here <a href='#'>French resume</a> / <a href='#'>English resume</a>");
+				self.setMessageCount(2);
+				self.addMessage("You can download my resume by clicking here <a href='static/pdf/CV_Hugo_Joby_2.pdf'>French resume</a> / <a href='#'>English resume</a>");
+				self.hideCursor();
 			}, 1000);
-		}, 1000);
-		RandomTitleGenerator.setTitle("Recruiters are awesome.")
+		}, 1000); 
+		RandomTitleGenerator.setTitle("Recruiters are awesome.");
+		
 	}
+	
 
 	normalMode () {
+		// Reset message count & questions
+		this.setMessageCount(0);
 		this.cleanQuestionField();
+
 		this.addQuestion("I'm a random.");
+		this.displayCursor();
+		var self = this;
+		// horrible nesterd timeout, but I didn't had a lot of time
+		setTimeout(function() {
+			self.setMessageCount(1);
+			self.addMessage("You're welcome ! Feel free to take a tour");
+			setTimeout(function() {
+				self.setMessageCount(2);
+				self.addMessage("You can re-use any code you want (or propose some improvements), if you do, don't forget to cite, it's always cool.");
+				self.hideCursor();
+			}, 1000);
+		}, 1000);
+		RandomTitleGenerator.setTitle("You are awesome.");
+		
 	}
 
 	constructor() {
@@ -162,21 +207,15 @@ class ChatConsole {
 
 
 class RandomTitleGenerator {
-	static possibleName = [ "Java", "C#", "Stack Overflow", "C", "C++", "Programmer", "Program", "Code", "Coding game", "Recruiter", "Big tech company", "Google", "Github", "Bug", "StackOverflow", "Vim", "Ubuntu", "Arch Linux", "Windows", "Linter", "Compilater", "Singleton", "HTML", "CSS", "GoLang"]
-	static possibleVerbes = ["might be", "should be", "must be", "can be", "is","became","will be"]
-	static possibleAdjectives = ["adorable", "delightful", "homely", "quaint", "adventurous", "depressed", "horrible", "aggressive", "determined", "hungry", "real", "agreeable", "different", "hurt", "relieved", "alert", "difficult", "repulsive", "alive", "disgusted", "ill", "rich", "amused", "distinct", "important", "angry", "disturbed", "impossible", "scary", "annoyed", "dizzy", "inexpensive", "selfish", "annoying", "doubtful", "innocent", "shiny", "anxious", "drab", "inquisitive", "shy", "arrogant", "dull", "itchy", "silly", "ashamed", "sleepy", "attractive", "eager", "jealous", "smiling", "average", "easy", "jittery", "smoggy", "awful", "elated", "jolly", "sore", "elegant", "joyous", "sparkling", "bad", "embarrassed", "splendid", "beautiful", "enchanting", "kind", "spotless", "better", "encouraging", "stormy", "bewildered", "energetic", "lazy", "strange", "black", "enthusiastic", "light", "stupid", "bloody", "envious", "lively", "successful", "blue", "evil", "lonely", "super", "blue",
-	"excited", "long", "blushing", "expensive", "lovely", "talented", "bored", "exuberant", "lucky", "tame", "brainy", "tender", "brave", "fair", "magnificent", "tense", "breakable", "faithful", "misty", "terrible", "bright", "famous", "modern", "tasty", "busy", "fancy", "motionless", "thankful", "fantastic", "muddy", "thoughtful", "calm", "fierce", "mushy", "thoughtless", "careful", "filthy", "mysterious", "tired", "cautious", "fine", "tough", "charming", "foolish", "nasty", "troubled", "cheerful", "fragile", "naughty", "clean", "frail", "nervous", "ugliest", "clear", "frantic", "nice", "ugly", "clever", "friendly", "nutty", "uninterested", "cloudy", "frightened", "unsightly", "clumsy", "funny", "obedient", "unusual", "colorful", "obnoxious", "upset", "combative", "gentle", "odd", "uptight", "comfortable", "gifted", "old-fashioned",
-	"concerned", "glamorous", "open", "vast", "condemned", "gleaming", "outrageous", "victorious", "confused", "glorious", "outstanding", "vivacious", "cooperative", "good", "courageous", "gorgeous", "panicky", "wandering", "crazy", "graceful", "perfect", "weary", "creepy", "grieving", "plain", "wicked", "crowded", "grotesque", "pleasant", "wide", "eyed",
-	"cruel", "grumpy", "poised", "wild", "curious", "poor", "witty", "cute", "handsome", "powerful", "worrisome", "happy", "precious", "worried", "dangerous", "healthy", "prickly", "wrong", "dark", "helpful", "proud", "dead", "helpless", "putrid", "zany", "defeated", "hilarious", "puzzled", "zealous" ]
 
 	static setTitle ( text ) {
 		document.getElementById('main_title').innerHTML = text;
 	} 
 
 	static getTitle() {
-		var name = this.possibleName[Math.floor(Math.random() * this.possibleName.length)]; 
-		var verb = this.possibleVerbes[Math.floor(Math.random() * this.possibleVerbes.length)]; 
-		var adjective = this.possibleAdjectives[Math.floor(Math.random() * this.possibleAdjectives.length)]; 
+		var name = possibleName[Math.floor(Math.random() * possibleName.length)]; 
+		var verb = possibleVerbes[Math.floor(Math.random() * possibleVerbes.length)]; 
+		var adjective = possibleAdjectives[Math.floor(Math.random() * possibleAdjectives.length)]; 
 
 		var title = `${name} ${verb} ${adjective}`;
 		this.setTitle(title);
@@ -184,10 +223,11 @@ class RandomTitleGenerator {
 
 	constructor() {
 		this.getTitle();
+
 	}
 }
 
-// This code was stolen from Mr. Chuck Grimmett, check is blog here : http://www.cagrimmett.com/til/2018/01/05/css-confetti.html 
+// This code was stolen from Mister Chuck Grimmett, check is blog here : http://www.cagrimmett.com/til/2018/01/05/css-confetti.html 
 class Confetti {
 	  
 	create(i) {
@@ -205,7 +245,7 @@ class Confetti {
 		  default:
 			colour = "red";
 		}
-		$('<div class="confetti-'+i+' '+colour+'"></div>').css({
+		$(`<div class="${colour}-confetti confetti-'+i+' '+colour+'"></div>`).css({
 		  "width" : width+"px",
 		  "height" : height+"px",
 		  "top" : -Math.random()*20+"%",

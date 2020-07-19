@@ -100,21 +100,19 @@ body {
     );
 }
 
-/* Confetti */
-.confetti {
-  position: absolute;
+.red-confetti {
+    position: absolute;
+    background-color: #E94A3F;
 }
 
-.red {
-  background-color: #E94A3F;
+.yellow-confetti {
+    position: absolute;
+    background-color: #FAA040;
 }
 
-.yellow {
-  background-color: #FAA040;
-}
-
-.blue {
-  background-color: #5FC9F5;
+.blue-confetti {
+    position: absolute;
+    background-color: #5FC9F5;
 }
 
 /* ID */ 
