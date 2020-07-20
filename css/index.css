@@ -207,6 +207,11 @@ body {
   transform: scale(1.2);
 }
 
+.octicon {
+    color: white;
+    fill: white;
+}
+
 
 
 /* ID */ 
