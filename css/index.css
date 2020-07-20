@@ -172,6 +172,9 @@ body {
     background-position: center;
     background-size: cover;
     top: 0;
+    transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -webkit-transition-duration: 1s;
 }
 
 .project-front {
@@ -201,10 +204,17 @@ body {
     font-size: 2rem;
 }
 
+.project-front .project-tag .badge{
+    background-color: #343A40;
+}
 
-.parent:hover .project-bg,
+
+.project:hover .project-bg,
 .parent:focus .project-bg {
   transform: scale(1.2);
+  transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -webkit-transition-duration: 1s;
 }
 
 .octicon {
@@ -324,10 +334,52 @@ body {
         justify-content: center;
     }
 
+    .project {
+        position: relative;
+        border-radius: 0.5rem;
+        height: 10rem;
+        max-height: max-content;
+        background-color: black;
+        margin: 5px;
+        flex: 1 1 100%;
+        overflow: hidden;
+    }
+
+
+    .project-front {
+        flex-direction: column;
+    }
+    
+    .project-front .project-name {
+        height: auto;
+        font-size: rem;
+        padding: 10px;
+    }
+    
+    .project-front .project-tag {
+        position: absolute;
+        padding: 5px;
+        bottom: 0;
+        right: 0;
+        font-size: 2rem;
+    }
+    
+
+    .panel {
+        overflow-x: hidden;
+        overflow-y: unset !important;
+        min-height: 100vh;
+        height: auto !important;
+    }
+
     .display-2 {
         font-size: 3.5rem;
         font-weight: 208;
         line-height: 1.2;
+    }
+
+    .message, .question {
+        border-radius: 2rem;
     }
 
     .toast .toast-text {
