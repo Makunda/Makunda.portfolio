@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hugo JOBY</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="./styles/index.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="panel" id="introduction_section">
+            <div class="row w-100 d-flex justify-content-center" id="top_bar">
+                <h2 class="display-2 " id="main_title"> </h2>
+                <p>
+                    Don't like the title ? <button type="button" onclick="RandomTitleGenerator.getTitle()" class="btn btn-info">Get a new one</button>
+                </p>
+            </div>
+            <div class="row mb-3">
+                <div class="container w-100 d-flex justify-content-center">
+                    
+                    
+                </div>
+            </div>
+            <div class="row w-100 d-flex justify-content-center">
+                <div class="container row d-flex justify-content-center">
+                        <div class="toast" id="chat-toast" aria-live="assertive" aria-atomic="true" >
+                            <div class="toast-header">
+                              <span class="badge badge-danger rounded mr-2"><span class="message-badge">0</span></span>
+                              <strong class="mr-auto">New messages</strong>
+                              <small>1 mins ago</small>
+                              <button type="button" class="ml-2 mb-1 close" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="toast-body">
+                                You got <span class="message-badge">0</span> new message from Hugo JOBY.
+                            </div>
+                            <div class="toast-text" id="toast_text">
+                                <div id="message_chat">
+                                </div>
+                                <div id="cursor">
+                                    <div id="message_cursor"><span>.</span><span>.</span><span>.</span></div>  
+                                </div>         
+                            </div>
+                            <div class="toast-answers" id="answer_chat">
+                                <i> Choose your reply here </i>
+                            </div>
+                          </div>
+                    
+                </div>
+            </div>
+    
+            <div class="row w-100 justify-content-center m-4" >
+                <a href="#project_section" onclick="confetti.launchConfetti()" class="d-flex text-center flex-column">
+                    <i> Claim your suprise below</i>
+                    <svg style="align-self: center;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="60" height="60">
+                    <path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg>
+                    </a>
+            
+            </div>
+ 
+        </div>
+        
+        <div class="panel" id="project_section">
+            <div class="row w-100 d-flex flex-column text-center justify-content-center mt-3">
+                <h3 class="display-3 m-3"> Ongoing projects </h3>
+                <div class="container project-container">
+                    <div class="project">
+                        <div class="project-front">
+                            <span class="project-name"> Moirai </span>
+                            <div class="project-tag">
+                                <span class="badge badge-secondary">Professional</span> 
+                                <span class="badge badge-secondary">Java 8</span> 
+                                <span class="badge badge-secondary">Neo4j</span> 
+                            </div>
+                        </div>
+                    
+                        <div class="project-bg" style="background-image: url('static/img/Neo4j.PNG')">
+                        </div>
+                    </div>
+                    <div class="project">
+                        <div class="project-front">
+                            <span class="project-name"> Trading Bot </span>
+                            <div class="project-tag">
+                                <span class="badge badge-secondary">Personnal</span> 
+                                <span class="badge badge-secondary">Java 14</span> 
+                                <span class="badge badge-secondary">InfluxDB</span> 
+                            </div>
+                        </div>
+                    
+                        <div class="project-bg" style="background-image: url('static/img/Java.PNG')">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row w-100 text-center d-flex flex-column justify-content-center mt-3">
+                <h3 class="display-3 m-3"> {{message}} </h3>
+                <div class="container project-container">
+                    <div class="project">
+                        <div class="project-front">
+                            <span class="project-name"> Freepower </span>
+                            <span class="project-tag">
+                                <span class="badge badge-secondary">C#</span> 
+                                <span class="badge badge-secondary">Client</span>
+                                <span class="badge badge-secondary">MSSQL</span>
+                            </span>
+                        </div>
+                        <div class="project-bg" style="background-image: url('https://previews.123rf.com/images/iunewind/iunewind1505/iunewind150500146/40225186-html-code.jpg')">
+                        </div>
+                    </div>
+                    
+                    <div class="project">
+                        <div class="project-front">
+                            <span class="project-name"> Geoloc </span>
+                            <span class="project-tag">
+                                <span class="badge badge-secondary">C</span> 
+                                <span class="badge badge-secondary">SFML</span>
+                                <span class="badge badge-secondary">Machine Learning</span>
+                            </span>
+                        </div>
+                        <div class="project-bg" style="background-image: url('static/img/C.PNG')">
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-front">
+                            <span class="project-name"> Mask R-Cnn + Trackers </span>
+                            <span class="project-tag">
+                                <span class="badge badge-secondary">Python</span> 
+                                <span class="badge badge-secondary">Scholar</span>
+                                <span class="badge badge-secondary">Deep learning</span>
+                            </span>
+                        </div>
+                        <div class="project-bg" style="background-image: url('static/img/DeeplearningASL.PNG')">
+                        </div>
+                    </div>
+                    
+
+                </div>
+            </div>
+            <div class="row justify-content-center m-3">
+                    <svg class="octicon" height="125" viewBox="0 0 16 16" version="1.1" width="125" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+            </div>
+            <div class="row justify-content-center">
+                <a class="text-white text-center" href="https://github.com/Makunda\"><h3><i>See more projects on my Github @Makunda</i></h3></a>
+            </div>
+        </div>
+
+        
+
+        <div class="panel" id="who_i_am_section">
+            <span id="#result"></span>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>        
+        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js" integrity="sha256-DI6NdAhhFRnO2k51mumYeDShet3I8AKCQf/tf7ARNhI=" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+        <script src="js/index.js"></script>
+        <script src="js/intro_console.js"></script>
+        <script src="js/project_vue.js"></script>
+    </body>
+</html>
